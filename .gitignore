@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# Secrets
+.env
+*.key
+*.pem
+credentials.json
+token.json
+
+# Local files
+.DS_Store
+
+# Raw/output data
+data/input/*
+!data/input/.gitkeep
+
+data/output/*
+!data/output/.gitkeep
+
+# Lead list exports
+outputs/
+*.csv
+*.xlsx
+
+# Logs
+*.log
+
+# Environment files anywhere in repo
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
