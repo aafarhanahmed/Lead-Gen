@@ -7,7 +7,7 @@ Purpose:
 - Leaves restricted or unavailable fields transparent instead of fabricating data.
 
 Setup:
-1. Add GOOGLE_MAPS_API_KEY to .env
+1. Add GOOGLE_PLACES_API_KEY to .env
 2. Run: python scripts/phoenix_25_sample.py
 3. Output appears in exports/
 
@@ -238,13 +238,17 @@ def dedupe_rows(rows: List[Dict[str, str]]) -> List[Dict[str, str]]:
     return clean_rows
 
 
+def get_api_key() -> str:
+    return os.getenv("GOOGLE_PLACES_API_KEY") or os.getenv("GOOGLE_MAPS_API_KEY") or ""
+
+
 def main() -> None:
     load_dotenv()
-    api_key = os.getenv("GOOGLE_MAPS_API_KEY")
+    api_key = get_api_key()
 
     if not api_key:
         raise SystemExit(
-            "Missing GOOGLE_MAPS_API_KEY. Create a .env file with: GOOGLE_MAPS_API_KEY=your_key_here"
+            "Missing API key. Create a .env file with: GOOGLE_PLACES_API_KEY=your_key_here"
         )
 
     all_rows: List[Dict[str, str]] = []
