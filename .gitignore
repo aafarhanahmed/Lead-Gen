@@ -16,17 +16,25 @@ token.json
 # Local files
 .DS_Store
 
-# Raw/output data
+# Caches
+.cache/
+
+# Local input/output data
 data/input/*
 !data/input/.gitkeep
 
 data/output/*
 !data/output/.gitkeep
 
-# Lead list exports
-outputs/
-*.csv
-*.xlsx
+# Generated lead exports
+outputs/*
+!outputs/.gitkeep
+!outputs/lead_lists/
+outputs/lead_lists/*
+!outputs/lead_lists/.gitkeep
+
+# Keep starter query files trackable
+data/queries/*.csv
 
 # Logs
 *.log
